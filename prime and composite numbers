@@ -1,0 +1,17 @@
+n=100
+x = seq(1, n)
+prime_numbers=c()
+composite_numbers = c()
+for (i in seq(2, n)) {
+if (any(x == i)) {
+	prime_numbers = c(prime_numbers, i)
+	x = c(x[(x %% i) != 0], i)
+}
+else{
+	composite_numbers = c(composite_numbers, i)
+}
+}
+print("prime_numbers")
+print(prime_numbers)
+print("composite_numbers")
+print(composite_numbers)
