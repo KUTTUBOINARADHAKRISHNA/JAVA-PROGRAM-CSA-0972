@@ -1,0 +1,25 @@
+	Write a source code in Java to create file “MyDetails” using createNewFile() Method. 
+
+program:
+
+
+import java.io.*;
+public class Program {
+    public static void main(String[] args) throws IOException
+    {
+        String text = "Hello world";
+        BufferedWriter output = null;
+        try 
+	{
+            File file = new File("D://Mydetails.txt");
+            output = new BufferedWriter(new FileWriter(file));
+            output.write(text);
+        } 
+	catch ( IOException e ) 
+	{
+		System.out.println("Exception raised");
+        } 
+	finally {
+          if ( output != null ) {
+            output.close();
+          }
