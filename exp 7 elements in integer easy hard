@@ -1,0 +1,37 @@
+7.	Write a Java code to find all pairs of elements in an integer array whose sum is equal to a given number?
+Example : IfInput Array : [4, -5, 9, 11, 25, 13, 12, 8]
+Input Number : 20	
+
+
+
+program :
+
+import java.io.*;
+import java.util.HashSet;
+ 
+class PairSum								
+{
+    static void printpairs(int arr[],int sum)
+    {       
+        HashSet<Integer> s = new HashSet<Integer>();
+        for (int i=0; i<arr.length; ++i)
+        {
+            int temp = sum-arr[i];
+ 
+            if (temp>=0 && s.contains(temp))
+            {
+                System.out.println("Pair with given sum " +
+                                    sum + " is (" + arr[i] +
+                                    ", "+temp+")");
+            }
+            s.add(arr[i]);
+        }
+    }
+
+    public static void main (String[] args)			
+    {
+        int A[] = {1, 4, 45, 6, 10, 8};
+        int n = 16;
+        printpairs(A,  n);
+    }
+}
