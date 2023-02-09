@@ -1,0 +1,165 @@
+if	Display Multiplication table for 5 and 10 using various stages of life cycle of the thread by generating a suitable code in Java.
+Sample Input 5, 10
+5 X 1 = 5
+5 X 2 =10
+
+program:
+import java.util.Scanner;
+
+public class ReverseAddPalindrome
+{
+	static int reverseNumber(int number)
+	{
+		int reverse = 0;
+		
+		int rem = 0;
+		
+		while (number != 0)
+		{
+			rem = number % 10;
+			
+			reverse = (reverse*10) + rem;
+			
+			number = number/10;
+		}
+		
+		return reverse;
+	}
+	
+	//Method To Check For Palindrome
+	
+	static boolean checkPalindrome(int number)
+	{
+		int reverse = reverseNumber(number);
+		
+		if(reverse == number)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	//Method To Reverse And Add Given Number Until You Get A Palindrome
+	
+	static void reverseAndAdd(int number)
+	{
+		if(checkPalindrome(number))
+		{
+			System.out.println("Given Number is already a palindrome");
+		}
+		else
+		{
+			while (!chec…
+[9:16 am, 09/02/2023] +91 97897 24877: 1. Develop a code to Reverse and Add a Number until you get a Palindrome.
+Sample Input   If 7325 is input number, then
+7325 (Input Number) + 5237 (Reverse Of Input Number) = 12562
+12562 + 26521 = 39083
+39083 + 38093 = 77176
+77176 + 67177 = 144353
+ 144353 + 353441 = 497794 (Palindrome)
+[9:16 am, 09/02/2023] +91 97897 24877: hard question and solution posted above
+[9:16 am, 09/02/2023] +91 97897 24877: class Table
+
+{
+        void printTable(int n)
+        {
+                synchronized(this)
+
+                {
+                        for(int i=1;i<=5;i++)
+
+                        {
+
+                                System.out.println(+n+"*"+i+"="+(n*i));
+
+                                try
+
+                                {
+
+                                        Thread.sleep(400);
+
+                                }
+
+                                catch(Exception e)
+
+                                {
+
+                                        System.out.println(e);
+
+                                }
+
+                        }
+
+                }
+
+        }
+}
+class Mythread1 extends Thread
+
+{
+
+        Table t;
+
+        Mythread1(Table t)
+
+        {
+
+                this.t=t;
+
+        }
+
+        public void run()
+
+        {
+
+                t.printTable(5);
+
+        }
+
+}
+
+
+
+
+
+class Mythread2 extends Thread
+
+{
+
+        Table t;
+
+        Mythread2(Table t)
+
+        {
+
+                this.t=t;
+
+        }
+
+        public void run()
+        {
+
+                t.printTable(100);
+        }
+}
+class Use
+{
+        public static void main(String args[])
+
+        {
+
+                Table obj = new Table();
+
+                Mythread1 th1 = new Mythread1(obj);
+
+                Mythread2 th2 = new Mythread2(obj);
+
+                th1.start();
+
+                th2.start();
+
+        }
+}
